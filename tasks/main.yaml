@@ -1,0 +1,33 @@
+---
+
+- name: Ensure bot token and chat id is provided
+  fail:
+    msg: "No token or chat id was provided"
+  when: telegram_chat_id == "" or telegram_bot_token == ""
+
+- name: Create scripts dir
+  file:
+    path: "{{ telegram_script_path }}"
+    state: directory
+    mode: 0755
+    owner: root
+
+- name: Create telegram pusher
+  template:
+    src: telegram.sh.j2
+    dest: "{{ telegram_script_path }}/telegram.sh"
+    mode: 0755
+
+- name: Create cron task
+  template:
+    src: cronjob.j2
+    dest: "{{ telegram_cron_path }}/{{ telegram_cron_name }}"
+    mode: 0644
+    owner: root
+  
+- name: Create startup job
+  template:
+    src: startupjob.j2
+    dest: "{{ telegram_startup_path }}/{{ telegram_cron_name }}"
+    mode: 0755
+    owner: root

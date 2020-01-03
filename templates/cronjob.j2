@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+# /etc/cron.d/"{{ telegram_cron_name }}": notify telegram about working instanse"
+
+# {{ telegram_cron_comment }}
+{{ telegram_cron_schedule }}    {{ telegram_cron_user | default('root') }}    {{ telegram_cron_job }}

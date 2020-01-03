@@ -1,0 +1,16 @@
+---
+
+telegram_script_path: "/root/scripts"
+telegram_cron_path: "/etc/cron.d"
+telegram_startup_path: "/etc/init.d"
+
+telegram_chat_id: ""
+telegram_bot_token: ""
+
+telegram_notification_message: "Eve is still working, $(uptime -p)"
+telegram_startup_message: "Eve is started up with $(nproc) CPUs and $(free -h | grep Mem | awk '{print $2}') Mem"
+
+telegram_cron_name: "telegram"
+telegram_cron_comment: "Run every 30 minutes"
+telegram_cron_schedule: "*/30 * * * *"
+telegram_cron_job: "{{ telegram_script_path }}/telegram.sh \"{{ telegram_notification_message }}\""
