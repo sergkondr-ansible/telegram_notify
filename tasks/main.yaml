@@ -25,9 +25,15 @@
     mode: 0644
     owner: root
   
-- name: Create startup job
+- name: Create systemd oneshot-service
   template:
-    src: startupjob.j2
-    dest: "{{ telegram_startup_path }}/{{ telegram_cron_name }}"
+    src: systemd.service.j2
+    dest: "{{ telegram_startup_path }}/telegram.service"
     mode: 0755
     owner: root
+  
+- name: Enable service telegram
+  systemd:
+    name: telegram
+    daemon_reload: yes
+    enabled: yes

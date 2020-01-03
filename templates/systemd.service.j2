@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify about instance starting in telegram
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "{{ telegram_script_path }}/telegram.sh \"{{ telegram_startup_message }}\""
+
+[Install]
+WantedBy=multi-user.target

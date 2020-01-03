@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHAT_ID="{{ telegram_chat_id }}"
-URL="https://api.telegram.org/bot{{telegram_bot_token}}/sendMessage"
+URL="https://api.telegram.org/bot{{ telegram_bot_token }}/sendMessage"
 
 if [[ "$#" -eq 0 ]]; then
     MESSAGE="Test"

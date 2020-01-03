@@ -2,7 +2,7 @@
 
 telegram_script_path: "/root/scripts"
 telegram_cron_path: "/etc/cron.d"
-telegram_startup_path: "/etc/init.d"
+telegram_startup_path: "/etc/systemd/system"
 
 telegram_chat_id: ""
 telegram_bot_token: ""

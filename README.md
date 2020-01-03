@@ -1,5 +1,9 @@
 # telegram_notify
 
+Add notification to telegram:
+* About instance start
+* Every 30 minutes about instance work
+
 ### Example
 ```
 telegram_chat_id: "1234567890"
